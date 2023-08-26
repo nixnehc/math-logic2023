@@ -1,7 +1,7 @@
 # math-logic2023
 哲珠2023数理逻辑课程网站
 
-(https://nixnehc.github.io/math-logic2023/)[https://nixnehc.github.io/math-logic2023/]
+https://nixnehc.github.io/math-logic2023/
 ---
 
 一些说明：
