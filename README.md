@@ -8,6 +8,8 @@ https://nixnehc.github.io/math-logic2023/
 
 - `index.html` 主页
 - `main.css` 外部样式表
-- `\image\..` 存放图片
+
+  
+- `\images\..` 存放图片
 - `\slides\..` 存放课件
 - `\misc\..` 杂项
