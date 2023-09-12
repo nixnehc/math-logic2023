@@ -3,31 +3,72 @@ html {
 	color-scheme: light dark;
 }
 */
+/*
+@font-face {
+	font-family: "IBM Plex Mono";
+	src: url("/static/fonts/IBMPlexMono-Regular-Latin1.woff2");
+	font-display: swap;
+}
 
-body { 
+@font-face {
+	font-family: "IBM Plex Sans";
+	src: url("/static/fonts/IBMPlexSans-Regular.woff2");
+}
+
+@font-face {
+	font-family: "IBM Plex Sans";
+	src: url("/static/fonts/IBMPlexSans-Bold.woff2");
+	font-weight: bold;
+}
+
+@font-face {
+	font-family: "IBM Plex Sans";
+	src: url("/static/fonts/IBMPlexSans-Italic.woff2");
+	font-style: italic;
+}
+
+@font-face {
+	font-family: "IBM Plex Sans";
+	src: url("/static/fonts/IBMPlexSans-BoldItalic.woff2");
+	font-style: italic;
+	font-weight: bold;
+}
+*/
+
+
+body {
 	/* 整个页面颜色为“淡绿色” */
 	/*background-color:#eaf3da; */
-	font-family: Monaco;
+	/*	font-family: monospace; */
+
+	/* font-family: 'EB Garamond', 'Noto Serif SC', serif; */
+
+	font-family: 'EB Garamond', 'Noto Serif', 'Noto Serif CJK SC', 'Noto Serif CJK', 'Source Han Serif SC', ‘Source Han Serif’, source-han-serif-sc, serif;
+
+	font-weight: 500;
+
 	font-size: 16px;
-	
+
 	max-width: 800px;
 	padding: 20px;
 	margin: auto;
 	line-height: 1.5;
-		}
+}
 
 
 
 h2 {
-	color:maroon;
+	color: maroon;
 	margin-top: 2em;
 }
+
 /* 一、二级标题为“茶红色” */
 
-h1 { 
-	color:maroon;
+h1 {
+	color: maroon;
 	border-bottom: 1px solid black;
 }
+
 /* 一级标题有一条 1像素宽+黑色+实心 下划线 */
 
 
@@ -37,22 +78,32 @@ q {
 
 
 a {
-  color: #CD5C5C  ;
-  text-decoration: none;
+	color: #CD5C5C;
+	text-decoration: none;
 }
-a:hover { color: var(--link-color); text-decoration: underline; text-decoration-style: solid; }
 
-a:visited:hover { color: #fb5012f0; }
+a:hover {
+	color: var(--link-color);
+	text-decoration: underline;
+	text-decoration-style: solid;
+}
+
+a:visited:hover {
+	color: #fb5012f0;
+}
 
 
 
 
 blockquote {
-  font-style: italic;
- /* border: thin solid black; */
-  padding: 0.4rem;
-  text-align: left;
-  p { margin: 0; }
+	font-style: italic;
+	/* border: thin solid black; */
+	padding: 0.4rem;
+	text-align: left;
+
+	p {
+		margin: 0;
+	}
 }
 
 
@@ -60,20 +111,21 @@ blockquote {
 #back_to_top {
 	position: fixed;
 	bottom: 40px;
-	right:20px;
+	right: 20px;
 	border: none;
-	
+
 }
 
 /*下面规则去掉链接的边框*/
-#back_to_top a,img {
-    border: none;
+#back_to_top a,
+img {
+	border: none;
 }
 
 
 footer {
-    text-align: center;
+	text-align: center;
 	font-size: 14px;
-	color:;
+	color: ;
 	margin: 10px;
 }

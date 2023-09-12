@@ -10,6 +10,7 @@ https://nixnehc.github.io/math-logic2023/
 - `main.css` 外部样式表
 
   
-- `\images\..` 存放图片
-- `\slides\..` 存放课件
-- `\misc\..` 杂项
+- `images/..` 存放图片
+- `slides/..` 存放课件
+- `misc/..` 杂项
+- `hw-tex/..` 存放每次作业的 tex, pdf 文件与解答
