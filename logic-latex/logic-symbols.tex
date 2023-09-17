@@ -1,0 +1,115 @@
+% 中文文档类；如果用 article 等文档类，要额外设置中文字体，略麻烦
+\documentclass[UTF8,12pt,a4paper]{ctexart}  
+
+
+%% 各类数学宏包
+\usepackage{amsmath}
+\usepackage{amsthm}		%注意：If the amsthm package is used with a non-AMS document class and with the amsmath package, amsthm must be loaded after amsmath, not before.
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{wasysym}
+
+%% 设置页边距：
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+
+\usepackage{graphicx} 	%管理图片的宏包
+
+\usepackage{color}
+
+
+%% 花体字母宏包
+\usepackage{mathrsfs}
+
+%% 自定义 「否定」 符号，使之与教材一致
+\newcommand{\negs}{\sim\!\!}
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\begin{document}
+	
+
+\begin{center}
+常用逻辑符号的 \LaTeX 代码 
+\end{center}
+
+
+\textit{本文档包含一些常用逻辑符号的 \LaTeX 代码，所列符号尽量与教材上的保持一致。此外，
+本文档将会随课程进度持续更新。}
+
+\textit{本文预设读者知道一些基本的 \LaTeX 操作，如怎样创建文档、怎样输入公式等。本文的内容只关乎逻辑符号和与之相关的注意事项。有任何技术上需要帮助的地方，请不要犹豫，联系助教。}
+
+\textit{最后更新日期：\today}
+
+
+
+\subsection*{命题联结词}
+
+\begin{table}[h]
+	\centering
+	\caption{ 注意：以下代码必须在数学环境（行内/行间）中使用 } 
+%	\label{tab: }
+	\begin{tabular}{l l c l}
+		\hline 
+		\hline
+		名称 & 代码 & 效果 & 示例\\
+		\hline
+		
+		析取 & \textbackslash lor &  $\lor$ &$p \lor q$ \\
+		
+		合取 & \textbackslash land &  $\land$ &$p \land q$ \\
+		
+		蕴涵 & \textbackslash to &  $\to$ &$p \to q$ \\
+		
+		双蕴涵 & \textbackslash leftrightarrow &  $\leftrightarrow$ &$p \leftrightarrow q$ \\ 
+		
+		否定 & \textbackslash neg &  $\neg$ & $ \neg q $ \\
+		
+		否定(另一种写法) & \textbackslash sim \textbackslash! &  $\sim$ & $ \sim\! q $ \\
+		\hline
+		\hline
+	\end{tabular}
+\end{table}
+
+注意事项：
+\begin{itemize}
+	\item \textbf{合取}：在一些“上古时代”的中英文教材中，也用符号 \& （其代码是 \textbackslash \&）表示合取，比如 $p \;\&\; q$。但因为该记法书写不方便，不建议使用这种记法。
+	
+	\item \textbf{蕴涵}：也有人会用代码 \textbackslash rightarrow 来表示蕴涵，但在 \LaTeX 中
+	其和 \textbackslash to 所指的符号是同一个，所以为简单起见，用后者为佳。
+	
+	\item \textbf{否定}：教材上的否定符号$\sim$是一种老式的记法，但要注意的是，在 \LaTeX 中默认 \textbackslash sim 是一个二元关系符号，而否定是一个{\color{red} 一元}联结词。
+	因此如果直接使用 \textbackslash sim 会导致 否定符号和公式之间的间距过宽，而上表中使用 \textbackslash sim \textbackslash! 则 缩短了 \textbackslash sim  的右间距，
+	从而使之更像一个一元运算符。
+	
+	比较以下两者的效果：
+	$\sim p$ 和 $\sim\! p$，
+	前者的代码是 \textbackslash sim p  而后者的是 \textbackslash sim \textbackslash! p，会发现后面公式的否定符号和$p$之间的间距明显小于前一个公式。
+	如果觉得其间距还是过大，可用 \textbackslash sim \textbackslash! \textbackslash! 继续调整，其效果是 $\sim\!\! p$。 一个更方便的做法是，在 tex 文件的导言区定义一个新的命令，如 \textbackslash newcommand \{\textbackslash oldneg \}\{\textbackslash sim \textbackslash!\}，以后就可以直接用 \textbackslash oldneg 愉快地输入否定符号啦。
+	
+	总之，以上讨论只适用于强迫症者。如果觉得以上操作太麻烦了，推荐直接用 \textbackslash neg 完事。
+\end{itemize}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\end{document}
