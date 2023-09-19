@@ -1,0 +1,95 @@
+% 中文文档类；如果用 article 等文档类，要额外设置中文字体，略麻烦
+\documentclass[UTF8,12pt,a4paper]{ctexart}  
+
+
+%% 各类数学宏包
+\usepackage{amsmath}
+\usepackage{amsthm}		%注意：If the amsthm package is used with a non-AMS document class and with the amsmath package, amsthm must be loaded after amsmath, not before.
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{wasysym}
+
+%% 设置页边距：
+\usepackage{geometry}
+\geometry{left=2cm,right=2cm,top=2cm,bottom=2cm}
+
+
+\usepackage{graphicx} 	%管理图片的宏包
+
+\usepackage{xcolor}
+
+
+%% 花体字母宏包
+\usepackage{mathrsfs}
+
+%% 自定义 「否定」 符号，使之与教材一致
+\newcommand{\negs}{\sim\!\!}
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\begin{document}
+	
+
+\begin{center}
+hw-1 (2023/09/12) \qquad \qquad 姓名：  \hspace{7em}  学号： 
+\end{center}
+
+
+
+\emph{p3: 1-(h)} \qquad
+If $y$ is an integer then $z$ is not real, provided that $x$ is a rational number.
+
+
+
+\textbf{Answer}:
+
+Let 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{l l r }
+		$p:$ & $y$ is an integer & {\color{purple} {\footnotesize 2 point}}\\
+		
+		$q:$ & $z$ is a real number & {\color{purple} {\footnotesize 2 point}}\\
+		
+		$r:$ & $x$ is a rational number & {\color{purple} {\footnotesize 2 point}} \\
+		
+	\end{tabular}
+\end{table}
+
+Therefore we have that 
+$ r \to ( p \to \neg q)$  or $ (r \land  p) \to \neg q$.
+\hfill 	{\color{purple} {\footnotesize 4 point}}
+
+
+
+\vspace{5em}
+\dotfill
+以上回答仅供参考，
+以下是据同学们答题情况总结的易错点
+\dotfill
+
+\begin{enumerate}
+\item 没有把\; “$z$ is {\color{red} not} real ” \; 中的\textbf{否定联结词}提取出，进而翻译为公式时缺少否定符号 $\neg$；
+
+\item 对英语的语序产生了错误的判断，将 \; 
+“ {\color{red} provided that} $x$ is a rational number” \; 这个句子成分放置到了错误的地方；
+
+\item 一些同学额外做了教材第3页第一题中的 $(a)-(h)$，但是没有注意到$(c),(e),(g)$中的 “{\color{red} either} \dots {\color{red} or} \dots” 表达的是\textbf{不兼容析取}，从而对句子产生了不当的翻译；
+
+\end{enumerate}
+
+
+
+此外，已经有同学发现中译本会把原来英文教材中的习题翻译错误，因此为了答题的准确性，
+还请大家尽量遵循英文的教材（至少是在抄题目的时候），不过用中英文答题皆可。
+
+
+
+
+
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\end{document}
