@@ -55,6 +55,11 @@ body {
 	line-height: 1.5;
 }
 
+/*让公式在水平方向浮动。*/
+.formula {
+	width: 100%;
+	overflow-x: auto
+}
 
 h3 {
 	margin-top: 35pt;
