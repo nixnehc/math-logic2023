@@ -80,7 +80,7 @@
       </li>
 
       <li>
-        <a href="#syllabus">授课大纲</a> (发布 hw-8 + week-12)
+        <a href="#syllabus">授课大纲</a> (发布 week-13 + hw-9)
       </li>
 
       <li>
@@ -122,7 +122,9 @@
       <ul>
         <li>Email: <a href="mailto:chenxin_hello@outlook.com"
             title="其实 chenxinhello@outlook.com 也是可以的哟">chenxin_hello@outlook.com</a></li>
-        <li>(+86) <a href="tel:13765681429">13765681429</a></li>
+        <li><img src="https://open.weixin.qq.com/zh_CN/htmledition/res/assets/res-design-download/icon16_wx_logo.png">
+          (+86) <a href="tel:13765681429">13765681429</a>
+        </li>
       </ul>
     </li>
 
@@ -173,9 +175,41 @@
 
   <h2 id="syllabus">📝 授课大纲</h2>
 
+  <h3>第十四周 (2023-11-28)</h3>
+
+
+
   <h3>第十三周 (2023-11-21)</h3>
-
-
+  &emsp;&emsp; 一个解释由4个部分构成：1.非空的「论域」+ 2.对语言中「常元符号」的解释 + 3.对语言中「函数符号」的解释 + 4.对语言中「谓词符号」的解释。要注意的是，\( a_i, f^n_i, P^n_i \)
+  这些是形式语言中的符号，其本身并没有意义；而我们通过「解释」这种数学结构可以赋予这些符号意义，而这些符号在解释中分别所指称即是 \( \bar{a}_i, \bar{f}^n_i, \bar{P}^n_i \)
+  （它们上面都有短横哦😯）
+  <br>
+  &emsp;&emsp;课堂上和教材中都举了大量的例子来直观地说明「解释」是如何工作的。「公式」的意义根据所处「解释」的不同亦有不同，可能会出现一些公式在某个解释中为真，而在另一个解释下为假的情况。
+  <br>
+  &emsp;&emsp; 进入
+  3.4 节，我们讨论了几个重要的概念：「赋值」、「满足」以及「真」。
+  为何要有「赋值」这种东西呢？究其原因，是因为给定一个「解释」后，一阶语言的中常元符号、函数符号、谓词符号都有了意义（命题连接词和量词的在每个解释中的含义都是固定的），现在语言中还没有确定意义的东西有「变元」以及变元+常元+函数符号所构成的「项」，在一个解释中，「赋值」的作用就是给这些东西赋予意义。直观上，「项」通过「赋值」被解释为论域中的个体。
+  <br>
+  &emsp;&emsp;另一个重要的概念就是赋值之间的「\(i\)-等价」关系，要注意的是这里的 \(i\) 是变元的下标。
+  两个赋值 \(v,v'\) 是 <a>\(i\)-等价</a> 的，就是说它们除了对变元 \(x_i\) 的解释<i>可能</i>不一样外，对其余变元的解释都是一样的。一种比喻是：
+  互相「\(i\)-等价」的赋值是一群天底下最志同道合的好朋友了，他们对几乎一切事物都持有相同的看法，但除了对于 变元 \(x_i\) 的看法<i>可能</i>不同（也可能相同哟）。
+  <br>
+  &emsp;&emsp;定义3.20 亦被称为「塔斯基真理定义」，其以「递归定义」的方式说明了什么是「解释\(I\)和赋值\(v\)满足一个公式\(\varphi\)」（记作 \(I,v \models \varphi\)
+  ）。在遇到量化公式 \(\forall x_i \phi\) 的时候，\(i\)-等价就发挥了它的作用。
+  <p>
+    🧐 关键词：解释、赋值、\(i\)-等价、满足
+  </p>
+  <p>
+    💡 Tips：
+  <ul>
+    <li>「赋值」永远是相对于某个「解释」来说的，脱离解释来讨论赋值是没意义的。</li>
+    <li> 此外，任何赋值与其本身都是 \(i\)-等价的（想一想，为啥嘞？） </li>
+  </ul>
+  </p>
+  <p>
+    ✍️ 作业：p.59 11 &emsp; (<a href="hw-tex/hw-9.pdf" target="_blank">hw-9.pdf</a> &emsp;
+    <a href="hw-tex/hw-9.tex" target="_blank">hw-9.tex</a>)
+  </p>
 
 
   <h3>第十二周 (2023-11-14)</h3>
@@ -204,14 +238,15 @@
   <br>
   &emsp;&emsp;
   对于「代入自由」，和同学的交流中脑中偶然闪过一句胡话，在此分享给大家：「如果在一个公式中， 一个项对一个变元是自由的，那么这个项肯定不爱这个变元，因为『爱，就是甘心被人束缚』（这是英雄联盟中 堕落天使·莫甘娜
-  的台词）」。希望这种不恰当的比喻能够帮助大家理解和记忆（总不致于产生副作用啦🤪）。
+  的台词）」。希望这种不恰当的比喻能够帮助大家理解和记忆（应该总不致于产生副作用啦🤪）。
 
   <p>
-    🧐 关键词：自由出现、项对变元是自由的、解释、
+    🧐 关键词：自由出现、项对变元是自由的、解释
   </p>
   <p>
     ✍️ 作业：p.56 9-(d) &emsp; (<a href="hw-tex/hw-8.pdf" target="_blank">hw-8.pdf</a> &emsp;
-    <a href="hw-tex/hw-8.tex" target="_blank">hw-8.tex</a>)
+    <a href="hw-tex/hw-8.tex" target="_blank">hw-8.tex</a>
+    &emsp; 参考答案: <a href="hw-tex/hw-8-answer.pdf" target="_blank">hw-8-answer.pdf</a>)
   </p>
 
 
@@ -236,12 +271,12 @@
   <p>
     ✍️ 作业：p.49 2-(c) &emsp; (<a href="hw-tex/hw-7.pdf" target="_blank">hw-7.pdf</a> &emsp;
     <a href="hw-tex/hw-7.tex" target="_blank">hw-7.tex</a>
-    &emsp; 参考答案: <a href="hw-tex/hw-7-answer.pdf" target="_blank">hw-7-answer.pdf)
+    &emsp; 参考答案: <a href="hw-tex/hw-7-answer.pdf" target="_blank">hw-7-answer.pdf</a>)
   </p>
 
 
 
-  <h3>第十周 (2023-10-31)</h3>
+  <h3> 第十周 (2023-10-31)</h3>
   <p>
     ✍️ 期中作业：p.44 (8 + 10) &emsp;
     (<a href="hw-tex/hw-6-middle-exam.pdf" target="_blank">hw-6-(middle-exam).pdf</a> &emsp; <a
