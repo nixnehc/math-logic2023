@@ -1,0 +1,929 @@
+% 中文文档类；如果用 article 等文档类，要额外设置中文字体，略麻烦
+% 请用  XeLaTeX 编译！！！
+\documentclass[UTF8,12pt,a4paper]{ctexart}  
+
+%% 各类数学宏包
+\usepackage{amsmath}
+\usepackage{amsthm}		%注意：If the amsthm package is used with a non-AMS document class and with the amsmath package, amsthm must be loaded after amsmath, not before.
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{wasysym}
+\usepackage{fontawesome5}
+
+%% 设置页边距：
+\usepackage{geometry}
+\geometry{left=1.5cm,right=1.5cm,top=1.5cm,bottom=1.5cm}
+
+\usepackage{graphicx} 	%管理图片的宏包
+
+\usepackage{xcolor}
+
+%% 花体字母宏包
+\usepackage{mathrsfs}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{most}
+
+%% 自定义 「否定」 符号，使之与教材一致
+\newcommand{\negs}{\sim\!}
+
+\begin{document}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+\begin{center}
+	\textit{2023·秋·数理逻辑} \qquad \textit{平时作业汇总}  \qquad 大家辛苦啦！  \faCoffee ～ ～ \\
+	(\textit{英文参考答案} + \textit{不带反馈})
+\end{center}
+
+
+%=================== hw-1 
+\noindent\texttt{hw-1 (2023/09/12) }
+
+\emph{p3: 1-(h)} \quad
+If $y$ is an integer then $z$ is not real, provided that $x$ is a rational number.
+
+
+\noindent\textbf{Answer}:
+
+Let
+\begin{center}
+	\begin{tabular}{l l l }
+ $p:$ & $y$ is an integer  \\
+ $q:$ & $z$ is a real number  \\
+ $r:$ & $x$ is a rational number 
+\end{tabular}
+\end{center}
+
+\indent 
+Therefore we have that $r \to (p \to \neg q)$ or $(r \land p) \to \neg q$.
+\hfill $\Box$
+
+
+
+
+
+\vspace{3em}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%=================== hw-2 
+\noindent\texttt{hw-2 (2023/09/19)}
+
+\emph{p10}: (7) \quad
+Show that the statement form $(((\negs p) \to q)  \to (p \to (\negs q)))$ 
+is not a tautology. Find statement forms $\mathscr{A}$ and $\mathscr{B}$ such that 
+$(((\negs \mathscr{A}) \to \mathscr{B})  \to (\mathscr{A} \to (\negs \mathscr{B})))$ is a contradiction.
+
+\noindent\textbf{Answer}:
+
+The following truth table shows that $(((\negs p) \to q)  \to (p \to (\negs q)))$ 
+is not a tautology.
+\begin{center}
+	\hspace{8em} 
+	\begin{tabular}{@{ }c@{ }@{ }c | c@{ }@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{}@{ }c@{ }@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{}@{ }c}
+		$p$ & $q$ &  & ( & $\lnot$ & $p$ & $\rightarrow$ & $q$ & ) & $\rightarrow$ & ( & $p$ & $\rightarrow$ & $\lnot$ & $q$ & ) & \\
+		\hline 
+		T & T &  &  & F & T & T & T &  & \textcolor{red}{F} &  & T & F & F & T &  & \\
+		T & F &  &  & F & T & T & F &  & {T} &  & T & T & T & F &  & \\
+		F & T &  &  & T & F & T & T &  & {T} &  & F & T & F & T &  & \\
+		F & F &  &  & T & F & F & F &  & {T} &  & F & T & T & F &  & \\
+	\end{tabular}
+\end{center}
+
+When  $\mathscr{A}$ and $\mathscr{B}$  are both tautologies, 
+then $(((\negs \mathscr{A}) \to \mathscr{B})  \to (\mathscr{A} \to (\negs \mathscr{B})))$ will be a contradiction. 
+For instance, let $\mathscr{A} = \mathscr{B} = (p \to p)$ or 
+$\mathscr{A} = \mathscr{B} = (p \lor  \neg p)$.
+\hfill $\Box$
+
+
+\vspace{1em}
+除了用真值表这种比较直观的手段外，还有诸多方法。以下答案来自\textit{黄程}同学，经其授权后分享给大家，感谢\textit{黄程}同学\faThumbsUp ：
+
+Suppose that $(((\negs p) \to q)  \to (p \to (\negs q)))$  is a tautology. Then the situation that $(\negs p) \to q $ be $T$ and $p \to (\negs q)$ be $F$ will not occur under any valuation. 
+But considering $q = T$ and $p = T$,  thus $p \to (\negs q)$ will be $T$. Contradiction! 
+Therefore $(((\negs p) \to q)  \to (p \to (\negs q)))$  is not a tautology.
+
+According above answer, when $\mathscr{A}$ and $\mathscr{B}$ be $T$ permanently, then $(((\negs \mathscr{A}) \to \mathscr{B})  \to (\mathscr{A} \to (\negs \mathscr{B})))$ will be a contradiction.
+In other words, $\mathscr{A}$ and $\mathscr{B}$ are both tautologies, say, 
+$\mathscr{A} = (p \lor  (\negs p))$ and $\mathscr{B} = p \to (q \to p)$.
+\hfill $\Box$
+
+
+
+
+
+\vspace{3em}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%=================== hw-3
+\noindent\texttt{hw-3 (2023/09/26)}
+
+\emph{p15}: 11-(a) \qquad
+Show, using \textbf{Proposition 1.14} and \textbf{1.17}, that the statement form  
+$(  (\neg (p \lor (\neg q)))  \to  (q \to r) )$
+is logically equivalent to each of the following.
+
+\hspace{1em} (a) $ ( (\neg (q \to p)) \to ((\neg q) \lor r )) $
+
+\newtcolorbox{mybox}[2][]
+{   colback = white, 
+	colframe = black, 
+	fonttitle = \bfseries,
+	colbacktitle = gray, enhanced,
+	attach boxed title to top center={yshift=-2mm},
+	title=#2,#1}
+\begin{mybox}[colback=white,width=19cm,boxrule=0.2mm]{Recall that}
+	
+	- \textbf{Proposition 1.14}:
+	If $\mathscr{B}_1$ is a statement form arising from the statement form $\mathscr{A}$ 
+	by substituting the statement form $\mathscr{B}$ for one or more occurrences of the
+	statement form $\mathscr{A}$ in $\mathscr{A}_1$, 
+	and if $\mathscr{B}$ is logically equivalent to $\mathscr{A}$, 
+	then $\mathscr{B}_1$ is logically equivalent to $\mathscr{A}_1$.
+	
+	-  	\textbf{Proposition 1.17 (De Morgan's Laws)}: 
+	Let $\mathscr{A}_1, \mathscr{A}_2, \dotsm \mathscr{A}_n$ be any statement forms. Then:
+	\begin{enumerate}
+		\item $(\bigvee^n_{i=1} (\neg \mathscr{A}_i))$ is logically equivalent to $( \neg (\bigwedge^n_{i=1} \mathscr{A}_i))$.
+		
+		\item $(\bigwedge^n_{i=1} ( \neg \mathscr{A}_i))$  is logically equivalent to  $(\neg (\bigvee^n_{i=1} \mathscr{A}_i))$.
+	\end{enumerate}
+\end{mybox}
+
+
+\noindent\textbf{Answer}:
+Let
+$\varphi = (  (\neg (p \lor (\neg q)))  \to  (q \to r) )$ and  
+$\chi = ( (\neg (q \to p)) \to ((\neg q) \lor r ))$.
+
+It suffices to show that if $\neg (p \lor (\neg q))$ is logically equivalent to $(\neg (q \to p))$, 
+and  $(q \to r)$ is logically equivalent to $ (\neg q) \lor r )$, 
+then $\varphi$ is logically equivalent to $\chi$ according to \textbf{Prop. 1.14}.
+
+
+But it is easy to check, say, using truth table, 
+that
+\[\begin{array}{r l l}
+	\neg (p \lor (\neg q))  &\leftrightarrow&  (\neg (q \to p))  \qquad \text{ and }\\
+	
+	(q \to r) &\leftrightarrow&  (\neg q) \lor r )   
+\end{array}\]
+are tautologies, which means that $(\neg (p \lor (\neg q)))$ and $(\neg (q \to p))$, 
+$(q \to r)$ and $(\neg q) \lor r ) $ are logically equivalent, respectively. 
+\hfill $\Box$
+
+
+
+
+
+
+
+\vspace{3em}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%=================== hw-4
+\noindent\texttt{hw-4 (2023/10/10)}
+
+\emph{p.19}: 13-(a) \quad
+Find statement forms in \textbf{conjunctive normal form} which are logically equivalent to the following:
+\[
+(a) \qquad (((\neg p)  \lor q) \to r)
+\] 
+
+\noindent\textbf{Answer}: 
+Here we will use \textit{three} methods to find some \textbf{conjunctive normal forms} (CNF) of $(\neg p \lor q) \to r$, the former two are from our \textsf{Textbook}, while the third one is new.
+
+In the first place, let 
+\[
+\varphi = (\neg p \lor q) \to r.
+\]
+
+\noindent\textit{Method-(1)}
+
+First we construct a truth table of $\varphi$'s {\color{red} negation}:
+\begin{center}
+	\begin{tabular}{@{ }c@{ }@{ }c@{ }@{ }c | c@{ }@{}c@{}@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{}@{ }c@{ }@{ }c@{ }@{}c@{ }}
+		$p$ & $q$ & $r$ & {\color{red} $\lnot$} & ( & ( & $\lnot$ & $p$ & $\lor$ & $q$ & ) & $\rightarrow$ & $r$ & )\\
+		\hline 
+		1 & 1 & 1 & 0 &  &  & 0 &  & 1 &  &  & 1 &  & \\
+		\underline{1} & \underline{1} & \underline{0} & \textcolor{red}{1} &  &  & 0 &  & 1 &  &  & 0 &  & \\
+		1 & 0 & 1 & 0 &  &  & 0 &  & 0 &  &  & 1 &  & \\
+		1 & 0 & 0 & 0 &  &  & 0 &  & 0 &  &  & 1 &  & \\
+		0 & 1 & 1 & 0 &  &  & 1 &  & 1 &  &  & 1 &  & \\
+		\underline{0} & \underline{1} & \underline{0} & \textcolor{red}{1} &  &  & 1 &  & 1 &  &  & 0 &  & \\
+		0 & 0 & 1 & 0 &  &  & 1 &  & 1 &  &  & 1 &  & \\
+		\underline{0} & \underline{0} & \underline{0} & \textcolor{red}{1} &  &  & 1 &  & 1 &  &  & 0 &  & \\
+	\end{tabular}
+\end{center}
+
+The combinations which give $\neg \varphi$ value $1$ are $110$, $010$ and $000$. 
+Thus a \textbf{disjunctive normal form} of $\neg \varphi$ is
+\[
+\chi = (p \land q \land \neg r) \lor (\neg p \land q \land \neg r) \lor (\neg p \land  \neg q \land \neg r)
+\] 
+It is clear that $\chi$ is logically equivalent to $\neg \varphi$, 
+hence $\neg \chi $ is  logically equivalent to $ \neg \neg \varphi$, i.e., $\varphi$.
+
+Then, by the \textbf{De Morgan’s laws}, we have
+\[\begin{array}{l l l}
+	\neg \chi 
+	&=&   
+	\neg [ (p \land q \land \neg r) \lor (\neg p \land q \land \neg r) \lor (\neg p \land  \neg q \land \neg r)  ] \\
+	
+	&\equiv&   
+	{\color{red} \neg} (p \land q \land \neg r) \land {\color{red} \neg} (\neg p \land q \land \neg r) \land {\color{red} \neg} (\neg p \land  \neg q \land \neg r)  \\
+	
+	&\equiv&   
+	( \neg p \lor \neg q \lor  \neg \neg r) \land  ( \neg \neg p \lor \neg q \lor \neg \neg r) \land  (\neg \neg p \lor \neg  \neg q \lor \neg \neg r)  \\
+	
+	&\equiv&   
+	( \neg p \lor \neg q \lor  r) \land  ( p \lor \neg q \lor r) \land  ( p \lor  q \lor r)  \\
+\end{array}\]
+
+Therefore, $ ( \neg p \lor \neg q \lor  r) \land  ( p \lor \neg q \lor r) \land  ( p \lor  q \lor r) $ is a CNF of $\varphi$.
+\hfill $\Box$
+
+(\textbf{NB}: here we using the symbol expression “$\alpha \equiv \beta$” \; to denote that formula $\alpha$ is logically equivalent to $\beta$)
+
+
+
+\vspace{1em}
+\noindent\textit{Method-(2)}
+
+\[\begin{array}{l l l l}
+	\varphi 
+	&=& 
+	(\neg p \lor q \to r) \\
+	
+	&\equiv&
+	\neg ( \neg p \lor q) \lor r  & \text{(by \textbf{material implication},}   \text{ cf. p.7: Example 1.4-(a) )}\\
+	
+	&\equiv&
+	(\neg \neg p \land \neg q) \lor r & \text{(by the \textbf{De Morgan’s laws})}  \\
+	
+	&\equiv&
+	( p \land \neg q) \lor r   \\
+	
+	&\equiv&
+	(p \lor r) \land (\neg q \lor r) & (\text{by the \textbf{distribution} of \;} (\lor\text{-}\land), 
+	\text{ cf. p.10, Exercises-6-(b)} )\\ 
+\end{array}\]
+
+Hence $(p \lor r) \land (\neg q \lor r)$ is a CNF of $\varphi$.
+\hfill $\Box$
+
+
+
+\vspace{1em}
+
+\noindent\textit{Method-(3)}
+
+Similarly, we construct a truth table for $\varphi$ (notice that, not for the \textit{negation} of $\varphi$):
+
+\begin{center}
+	\begin{tabular}{@{ }c@{ }@{ }c@{ }@{ }c | c@{ }@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c}
+		$p$ & $q$ & $r$ &  & ( & $\lnot$ & $p$ & $\lor$ & $q$ & ) & $\rightarrow$ & $r$ & \\
+		\hline 
+		1 & 1 & 1 &  &  & 0 & 1 & 1 & 1 &  &                  1 & 1 & \\
+		\underline{1} & \underline{1} & \underline{0} &  &  & 0 & 1 & 1 & 1 &  & \textcolor{red}{0} & 0 & \\
+		1 & 0 & 1 &  &  & 0 & 1 & 0 & 0 &  &                 1  & 1 & \\
+		1 & 0 & 0 &  &  & 0 & 1 & 0 & 0 &  & 				 1 & 0 & \\
+		0 & 1 & 1 &  &  & 1 & 0 & 1 & 1 &  & 				 1 & 1 & \\
+		\underline{0} & \underline{1} & \underline{0} &  &  & 1 & 0 & 1 & 1 &  & \textcolor{red}{0} & 0 & \\
+		0 & 0 & 1 &  &  & 1 & 0 & 1 & 0 &  & 				 1 & 1 & \\
+		\underline{0} & \underline{0} & \underline{0} &  &  & 1 & 0 & 1 & 0 &  & \textcolor{red}{0} & 0 & \\
+	\end{tabular}
+\end{center}
+
+The combinations which give $\varphi$ value $0$ are $110$, $010$ and $000$. 
+Then according to these truth combinations, we can construct three \textbf{disjunctive formulas} as follows,
+\[\begin{array}{l l l}
+	\varphi_1 
+	&=&
+	(\neg p \lor \neg q \lor r) \\ 
+	
+	\varphi_2
+	&=&
+	( p \lor \neg q \lor r) \\
+	
+	\varphi_3
+	&=&
+	( p \lor  q \lor r)  \\
+\end{array}\]
+
+Next, we connect above three formulas in a conjunctive form, that is,
+\[
+\varphi_1 \land \varphi_2 \land \varphi_3 = ( \neg p \lor \neg q \lor  r) \land  ( p \lor \neg q \lor r) \land  ( p \lor  q \lor r)
+\]
+
+It is easy to check that  $\varphi_1 \land \varphi_2 \land \varphi_3$ is a CNF of $\varphi$. 
+And as we can see, the result in current \textit{Method-(3)} is same as the  \textit{Method-(1)}. 
+\hfill $\Box$
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\vspace{2em}  % 如果用 latex 答题 请把这个垂直间距删除，或调整为自己喜欢的间距
+\vspace{3em}
+
+\emph{p.26}: 21 \quad
+Suppose that $\mathscr{A}_1,\mathscr{A}_2,\dots,\mathscr{A}_n$;  $\therefore\mathscr{A}$ is a valid argument form. Prove that $\mathscr{A}_1,\mathscr{A}_2,\dots,\mathscr{A}_{n-1}$;  $\therefore (\mathscr{A}_n \to \mathscr{A})$ is also a valid argument form.
+
+\noindent\textbf{Proof}:
+
+First, suppose that $\mathscr{A}_1,\mathscr{A}_2,\dots,\mathscr{A}_n$;  $\therefore\mathscr{A}$ is a valid argument form, but $\mathscr{A}_1,\mathscr{A}_2,\dots,\mathscr{A}_{n-1}$;  $\therefore (\mathscr{A}_n \to \mathscr{A})$ is not. 
+
+Then there is an assignment of truth values to the statement variables such that 
+$\mathscr{A}_1,\mathscr{A}_2,\dots,\mathscr{A}_{n-1}$ takes value $T$ 
+while $(\mathscr{A}_n \to \mathscr{A})$ takes value $F$, that is, 
+$\mathscr{A}_n $ is $T$ but $\mathscr{A}$ takes $F$. 
+However, this contradicts to our assumption that $\mathscr{A}_1,\mathscr{A}_2,\dots,\mathscr{A}_n$;  $\therefore\mathscr{A}$ is a valid argument form.
+\hfill $\Box$
+
+
+
+
+
+
+
+
+
+\vspace{4em}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%=================== hw-5
+\noindent\texttt{hw-5 (2023/10/17)}
+
+\emph{p.36}: 1-(c) \quad
+Write out proofs in $L$ for the following $wfs$.
+\[
+(c) \qquad  (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_2)
+\] 
+
+\noindent\textbf{Proof}: 
+
+\noindent\textit{Method-(1)}
+
+\begin{enumerate}
+	\item $ (p_1 \to (p_1 \to p_2)) \to ((p_1 \to p_1) \to (p_1 \to p_2)) $
+	\hfill (instance of $L2$)
+	
+	\item $ [(p_1 \to (p_1 \to p_2)) \to ((p_1 \to p_1) \to (p_1 \to p_2))] \to  $
+	
+	$
+	[( (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_1))  \to
+	( (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_2)) ]
+	$
+	\hfill (instance of $L2$)
+	
+	\item $ ( (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_1))  \to
+	( (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_2))$
+	\hfill ($1+2,MP$)
+	
+	\item $p_1 \to ((p_1 \to p_2) \to p_1)$ 
+	\hfill (instance of $L1$)
+	
+	\item $[p_1 \to ((p_1 \to p_2) \to p_1)] \to 
+	[ (p_1 \to (p_1 \to p_2))  \to (p_1 \to p_1) ]$ 
+	\hfill (instance of $L2$)
+	
+	\item $(p_1 \to (p_1 \to p_2))  \to (p_1 \to p_1)$
+	\hfill ($4+5, MP$)
+	
+	\item $(p_1 \to (p_1 \to p_2)) \to (p_1 \to p_2)$ 
+	\hfill ($3+6, MP$)
+\end{enumerate}
+The proof for (c) is not unique, of course.
+\hfill $\Box$
+
+
+%---------------------------------------
+\vspace{1em} 
+
+\noindent\textit{Method-(2)}
+
+\begin{enumerate}
+	\item $p_1 \to ((p_1 \to p_1) \to p_1)$  
+	\hfill (instance of $L1$)
+	
+	\item $(p_1 \to ((p_1 \to p_1) \to p_1))   \to   (  (p_1 \to (p_1 \to p_1)) \to (p_1 \to p_1) )$ 
+	\hfill (instance of $L2$)
+	
+	\item $(p_1 \to (p_1 \to p_1)) \to (p_1 \to p_1)$ 
+	\hfill ($1+2, MP$)
+	
+	\item $p_1 \to (p_1 \to p_1)$ 
+	\hfill (instance of $L1$)
+	
+	\item $(p_1 \to p_1)$
+	\hfill ($3+4, MP$)
+	
+	\item $(p_1 \to p_1) \to ( (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_1) )$  
+	\hfill (instance of $L1$)
+	
+	\item $(p_1 \to (p_1 \to p_2)) \to (p_1 \to p_1)$ 
+	\hfill ($5+6, MP$)
+	
+	\item $( p_1 \to (p_1 \to p_2))  \to  ( (p_1 \to p_1)  \to (p_1 \to p_2) )$  
+	\hfill (instance of $L2$)
+	
+	\item $ [(p_1 \to (p_1 \to p_2)) \to ((p_1 \to p_1) \to (p_1 \to p_2))] \to  $
+	
+	$
+	[( (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_1))  \to
+	( (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_2)) ]
+	$
+	\hfill (instance of $L2$)
+	
+	\item $( (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_1))  \to
+	( (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_2)) $  
+	\hfill ($8+9,MP$)
+	
+	\item $(p_1 \to (p_1 \to p_2)) \to (p_1 \to p_2)$ 
+	\hfill ($7+10, MP$)
+\end{enumerate}
+
+
+%---------------------------------------
+\vspace{1em}
+
+\noindent\textit{Method-(3)}
+
+\begin{enumerate}
+	\item  $ \{ (p_1 \to p_2) \to [ ( (p_1 \to p_2) \to (p_1 \to p_2) )  \to (p_1 \to p_2)   ] \} \to $
+	
+	$ \{ [ (p_1 \to p_2) \to ( (p_1 \to p_2) \to (p_1 \to p_2) ) ] \to [(p_1 \to p_2) \to (p_1 \to p_2)]  \}$
+	\hfill (instance of $L2$)
+	
+	
+	\item $(p_1 \to p_2) \to [ ( (p_1 \to p_2) \to (p_1 \to p_2) )  \to (p_1 \to p_2)   ]$
+	\hfill (instance of $L1$)
+	
+	\item $[ (p_1 \to p_2) \to ( (p_1 \to p_2) \to (p_1 \to p_2) ) ] \to [(p_1 \to p_2) \to (p_1 \to p_2)] $ 
+	\hfill ($1+2, MP$)
+	
+	\item $(p_1 \to p_2) \to ( (p_1 \to p_2) \to (p_1 \to p_2) ) $ 
+	\hfill (instance of $L1$)
+	
+	\item $(p_1 \to p_2) \to (p_1 \to p_2)$  
+	\hfill ($3+4, MP$)
+	
+	\item $[ (p_1 \to p_2) \to (p_1 \to p_2)]   \to [ ((p_1 \to p_2) \to p_1)  \to ((p_1 \to p_2) \to p_2)  ]$ 
+	\hfill (instance of $L2$)
+	
+	\item $((p_1 \to p_2) \to p_1)  \to ((p_1 \to p_2) \to p_2)$ 
+	\hfill ($5+6, MP$)
+	
+	\item $ [ ((p_1 \to p_2) \to p_1)  \to ((p_1 \to p_2) \to p_2) ]  \to $ 
+	
+	$
+	[ p_1 \to ( ((p_1 \to p_2) \to p_1)  \to ((p_1 \to p_2) \to p_2) )  ]$
+	\hfill (instance of $L1$)
+	
+	\item $p_1 \to ( ((p_1 \to p_2) \to p_1)  \to ((p_1 \to p_2) \to p_2) )  $ 
+	\hfill ($7+8, MP$)
+	
+	\item $ [p_1 \to ( ((p_1 \to p_2) \to p_1)  \to ((p_1 \to p_2) \to p_2) )   ] \to$
+	
+	$[ (p_1 \to ((p_1 \to p_2) \to p_1))   \to (p_1 \to ((p_1 \to p_2) \to p_2))   ]$
+	\hfill (instance of $L2$)
+	
+	\item $(p_1 \to ((p_1 \to p_2) \to p_1))   \to (p_1 \to ((p_1 \to p_2) \to p_2))  $  
+	\hfill ($9+10,MP$)
+	
+	\item $p_1 \to ((p_1 \to p_2) \to p_1)$  
+	\hfill (instance of $L1$)
+	
+	\item $ p_1 \to ((p_1 \to p_2) \to p_2)$  
+	\hfill ($11+12, MP$)
+	
+	\item $[ p_1 \to ((p_1 \to p_2) \to p_2)]  \to [ (p_1 \to (p_1 \to p_2)) \to (p_1 \to p_2) ]$
+	\hfill (instance of $L2$) 
+	
+	\item  $(p_1 \to (p_1 \to p_2)) \to (p_1 \to p_2)$
+	\hfill ($13+14, MP$) 
+\end{enumerate}
+
+
+\vspace{1em}
+
+(ps. 上面公式中的 \textit{中括号} $[ \;]$ 和 \textit{花括号} $\{ \; \}$ 是起辅助作用的，为的是方便大家观看。但应注意的是，其本身不是命题逻辑公理系统$L$中的符号 !!!)
+
+\vspace{2em}
+
+\emph{p.37}: 5 \quad
+The rule $HS$ is an example of a legitimate additional rule of deduction for $L$. Is the following rule legitimate in the same sense: from the $wfs.$ $\mathscr{B}$ and $(\mathscr{A} \to (\mathscr{B} \to \mathscr{C}))$, deduce $(\mathscr{A} \to \mathscr{C})$ ?
+
+\noindent\textbf{Answer}:   
+
+\noindent\textit{Method-(1)} (without using the \textbf{Deduction Theorem})
+
+\begin{enumerate}
+	\item $\mathscr{B}$
+	\hfill (assumption)
+	
+	\item $(\mathscr{A} \to (\mathscr{B} \to \mathscr{C}))$
+	\hfill (assumption)
+	
+	
+	\item $(\mathscr{A} \to (\mathscr{B} \to \mathscr{C})) \to ((\mathscr{A} \to \mathscr{B}) \to (\mathscr{A} \to \mathscr{C})) $
+	\hfill ($L2$)
+	
+	
+	\item $( (\mathscr{A} \to \mathscr{B}) \to (\mathscr{A} \to \mathscr{C}) )$
+	\hfill ($2 + 3, MP$)
+	
+	\item $(\mathscr{B} \to (\mathscr{A} \to \mathscr{B}))$
+	\hfill ($L1$)
+	
+	\item $(\mathscr{A} \to \mathscr{B})$
+	\hfill ($1+5, MP$)
+	
+	\item $(\mathscr{A} \to \mathscr{C})$
+	\hfill ($6+4, MP$)
+\end{enumerate}
+
+Hence this rule is a legitimate additional rule of deduction for $L$.
+\hfill $\Box$
+
+
+
+%---------------------------------------------------------
+\vspace{1em}
+\noindent\textit{Method-(2)} (using the \textbf{Deduction Theorem})
+
+We first show that 
+\[
+\{\mathscr{B}, (\mathscr{A} \to (\mathscr{B} \to \mathscr{C}))\} \cup \{ \mathscr{A}\} \vdash_L \mathscr{C}.
+\]
+
+We write out a deduction for above one as follows:
+
+\begin{enumerate}
+	\item $\mathscr{B}$  
+	\hfill (assumption)
+	
+	\item $(\mathscr{A} \to (\mathscr{B} \to \mathscr{C}))$
+	\hfill (assumption)
+	
+	\item $\mathscr{A}$
+	\hfill (assumption)
+	
+	\item $(\mathscr{B} \to \mathscr{C})$
+	\hfill ($2+3,MP$)
+	
+	\item $\mathscr{C}$
+	\hfill ($1+4, MP$)
+\end{enumerate} 
+
+Hence by the \textbf{Deduction Theorem}, we have
+\[
+\{\mathscr{B}, (\mathscr{A} \to (\mathscr{B} \to \mathscr{C}))\} \vdash_L \mathscr{A} \to \mathscr{C}.
+\]
+as required.
+\hfill $\Box$
+
+\vspace{1em}
+
+
+
+
+
+
+
+
+\vspace{4em}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%=================== hw-6
+\noindent\texttt{hw-6 (2023/10/31)}  \textit{期中作业}
+
+\emph{p.44}: (8) \quad
+Let $\mathscr{A}$ be a \textit{wf.} $((\neg p_1 \to p_2) \to (p_1 \to \neg p_2))$. 
+Show that $L^+$, obtained by including this $\mathscr{A}$ as a new axiom, has a larger set of theorems than $L$. Is $L^+$ a consistent extension of $L$?
+(\textit{注意：此题有两问})
+
+\noindent\textbf{Proof}:
+
+\begin{center}
+	\begin{tabular}{@{ }c@{ }@{ }c | c@{ }@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{}@{ }c@{ }@{}c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{}@{ }c}
+		$p_1$ & $p_2$ &  & ( & $\lnot$ & $p_1$ & $\to$ & $p_2$ & ) & $\to$ & ( & $p_1$ & $\to$ & $\lnot$ & $p_2$ & ) & \\
+		\hline 
+		T & T &  &  & F & T & T & T &  & \textcolor{purple}{F} &  & T & F & F & T &  & \\
+		T & F &  &  & F & T & T & F &  & \textcolor{purple}{T} &  & T & T & T & F &  & \\
+		F & T &  &  & T & F & T & T &  & \textcolor{purple}{T} &  & F & T & F & T &  & \\
+		F & F &  &  & T & F & F & F &  & \textcolor{purple}{T} &  & F & T & T & F &  & \\
+	\end{tabular}
+\end{center}
+
+\textit{For the first question}:
+Obviously $\mathscr{A} = ((\neg p_1 \to p_2) \to (p_1 \to \neg p_2))$ is not a tautology by above truth table, 
+then by the \textbf{Soundness Theorem}, 
+$\mathscr{A}$ is {\color{purple} not} a theorem of $L$, 
+while it is a theorem of $L^+$, 
+therefore $L^+$ has a larger set of theorems than $L$.
+
+\textit{For the second question}:
+$L^+$ is consistent. 
+For suppose otherwise, then there is a formula $\mathscr{B}$ such that 
+$\vdash_{L^+} \mathscr{B}$  and	$\vdash_{L^+} \neg \mathscr{B}$. 
+Since $L^+$ is obtained by including $\mathscr{A} = ((\neg p_1 \to p_2) \to (p_1 \to \neg p_2))$ as an extra axiom then $L$, 
+hence we have that (note that the {\color{purple} subscript} of $\vdash$)
+\[\begin{array}{l l l}
+	\mathscr{A} \vdash_{L} \mathscr{B}  \quad \text{and} \quad	
+	\mathscr{A} \vdash_{L} \neg \mathscr{B}. \\
+\end{array}\]
+By the \textbf{Deduction Theorem}, 
+\[
+\vdash_{L} \mathscr{A} \to \mathscr{B}  \quad \text{and} \quad	
+\vdash_{L} \mathscr{A} \to \neg \mathscr{B}, 
+\]
+which means that
+($\mathscr{A} \to \mathscr{B})$ and $(\mathscr{A} \to \neg \mathscr{B})$ are tautologies according to the \textbf{Soundness Theorem}.
+Then by the definition, for any valuation $v$ we have that 
+$v(\mathscr{A} \to \mathscr{B})  = T$ and  $v(\mathscr{A} \to \neg \mathscr{B})  = T$,
+which implies that $v(\mathscr{A}) = F$, that is, $\mathscr{A}$ is a \textit{contradiction}. But this is impossible by the truth table of $\mathscr{A}$. Contradiction!
+\hfill $\Box$
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{2em}  
+\noindent\emph{p.44}: (10) \quad
+Let $L^{++}$ be the extension of $L$ obtained by including as a fourth axiom \textit{scheme}:
+\[
+( (\neg \mathscr{A} \to \mathscr{B}) \to (\mathscr{A} \to \neg \mathscr{B})).
+\]
+Show that $L^{++}$ is inconsistent. (Hint: see Chapter 1 exercise 7 (p.10)) 
+
+
+\noindent\textbf{Proof}:
+
+\noindent\textit{Method-(1)}
+
+Let 
+$\top = (p \to p)$ and $\varphi = (\neg \top \to \top)  \to (\top \to \neg \top)$,
+clearly $ \vdash_{L^{++}} \varphi$ (i.e., let $\mathscr{A} = \mathscr{B} = \top$). 
+It is easy to check , 
+say using truth table, that $\varphi$ is a contradiction, 
+hence $\neg \varphi$ is a tautology. 
+By the \textbf{Completeness Theorem}, $\vdash_L \neg \varphi$, 
+and thus $\vdash_{L^{++}} \neg \varphi$ since $L^{++}$ is a extension of $L$.
+
+But we have that $\vdash_{L^{++}} \varphi$ and $\vdash_{L^{++}} \neg \varphi$, by the definition, $L^{++}$ is inconsistent as required.
+\hfill $\Box$
+
+
+\noindent\textit{Method-(2)}
+
+(下面这个证明来自 \textit{吴家儒}\ 同学，这种证明很直接且颇具暴力美学，
+再次感谢\textit{家儒}同学为我们带来如此精彩的证明 \faHeart[regular] \faHeart[regular] \faHeart[regular])
+
+Since $\vdash_L (p \to p)$ (cf. \textit{Example 2.7-(a)} in page 31),  we have that
+$
+\vdash_{L^{++}} (p \to p)
+$ obviously.
+And let $(L4)$ denotes the  \textit{fourth axiom scheme} of $L^{++}$, that is,
+\[
+(L4) \qquad ( (\neg \mathscr{A} \to \mathscr{B}) \to (\mathscr{A} \to \neg \mathscr{B})).
+\]
+
+
+Considering the  following proof sequence  in $L^{++}$:
+\begin{enumerate}
+	\item $[\neg (p \to p) \to (p \to p)]   \to [(p \to p) \to \neg (p \to p)]$ 
+	\hfill  (instance of $L4$)
+	
+	\item $[ (\neg (p \to p) \to (p \to p))   \to ((p \to p) \to \neg (p \to p)) ]$ $\to$
+	
+	$[
+	((\neg (p \to p) \to (p \to p)) \to (p \to p) )  \to 
+	(
+	(\neg (p \to p) \to (p \to p)) \to \neg (p \to p)
+	)
+	]$
+	\hfill  (instance of $L2$)
+	
+	\item $((\neg (p \to p) \to (p \to p)) \to (p \to p) )  \to 
+	(
+	(\neg (p \to p) \to (p \to p)) \to \neg (p \to p)
+	)$
+	\hfill ($1 + 2, MP$)
+	
+	\item $(p \to p) \to [(\neg (p \to p) \to (p \to p)) \to (p \to p)]$ 
+	\hfill (instance of $L1$)
+	
+	\item $(p \to p) $ 
+	\hfill ($(p\to p)$ is a theorem of $L$, so is for $L^{++}$)
+	
+	\item $(\neg (p \to p) \to (p \to p)) \to (p \to p) $
+	\hfill ($4+5, MP$)
+	
+	\item $(\neg (p \to p) \to (p \to p)) \to \neg (p \to p)$
+	\hfill ($6+3, MP$)
+	
+	\item $(p \to p) \to ( \neg (p \to p) \to (p \to p))$ 
+	\hfill (instance of $L1$)
+	
+	\item $ \neg (p \to p) \to (p \to p)$ 
+	\hfill ($5+8, MP$)
+	
+	\item $\neg (p \to p)$
+	\hfill ($9+7, MP$)
+\end{enumerate}
+
+\noindent 
+Hence $\vdash_{L^{++}} \neg (p \to p)$, together with previous  $\vdash_{L^{++}} (p \to p)$, $L^{++}$ is inconsistent as desired.
+\hfill $\Box$
+
+
+
+
+
+\vspace{4em}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%=================== hw-7
+\noindent\texttt{hw-7 (2023/11/07)}
+
+\emph{p.49}: 2-(c) \quad
+Translate each of the following statements into symbols, {\color{purple} first} using no existential quantifiers, and {\color{purple} second} using no universal quantifiers. 
+
+\qquad (c) \hspace{3cm}  \textit{No mouse is heavier than any elephant.}
+
+(\textit{注意：题目要求大家要分别用“全称量词”和“存在量词”符号化句子，因此你的翻译至少有两句})
+
+\noindent\textbf{Answer}:   
+
+Let 
+\[\begin{array}{l l l}
+	M(x):& x \text{ is a \textit{mouse}}\\
+	E(x): & x \text{ is an \textit{elephant}}\\
+	H(x,y): & x \text{ is \textit{heavier than}\;} y \\
+\end{array}\]
+
+Using \textit{no} existential quantifier: 
+\begin{enumerate}
+	\item $(\forall x) (\forall y) (M(x) \land E(y) \to \neg H(x,y))$, or
+	
+	\item $(\forall x) (\forall y) (M(x) \to (E(y) \to \neg H(x,y)))$, or
+	
+	\item $(\forall x)  (M(x) \to (\forall y) (E(y) \to \neg H(x,y)))$, or
+	
+	\item any other reasonable answers.
+\end{enumerate}
+
+\vspace{1em}
+
+Using \textit{no} universal quantifier:
+\begin{enumerate}
+	\item $\neg (\exists x) (\exists y) (M(x) \land E(y) \land H(x,y))$, or
+	
+	\item $\neg (\exists x)  (M(x) \land (\exists y) (E(y) \land H(x,y)))$, or
+	
+	\item any other sensible answers. 
+	\hfill $\Box$
+\end{enumerate}
+
+
+
+
+
+
+
+
+\vspace{4em}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%=================== hw-8
+\noindent\texttt{hw-8 (2023/11/14)}
+
+\emph{p.56}: 9-(d) \quad
+In each case below, let $\mathscr{A}(x_1)$ be the given \emph{wf}., and let $t$ be the term $f^2_1(x_1,x_3)$. Write out the $wf.$ $\mathscr{A}(t)$ and hence decide in each case whether $t$ is {\color{purple} free for $x_1$} in the given \emph{wf}.
+\[
+(d) \qquad (\forall x_2) A^3_1 (x_1, f^1_1(x_1),x_2)  \to (\forall x_3)A^1_1(f^2_1(x_1,x_3)).
+\]
+
+\newtcolorbox{mybox2}[2][]
+{   colback = white, 
+	colframe = black, 
+	fonttitle = \bfseries,
+	colbacktitle = gray, enhanced,
+	attach boxed title to top center={yshift=-2mm},
+	title=#2,#1}
+\begin{mybox2}[colback=white,width=19cm,boxrule=0.2mm]{Recall that}
+	
+	- {\color{red} $\mathscr{A}(t)$}: if $x_i$ does occur free in $\mathscr{A}(x_1)$, then $\mathscr{A}(t)$ denotes the result of substituting term $t$ for  {\color{purple}every free occurrence} of $x_i$. (cf. \emph{p.54})	
+	
+	-  $t$ is {\color{red} free} for $x$ in a \emph{wf.} $\phi$: 
+	
+	\textbf{定义3.11*. (Revised defintion)} \quad
+	当一个项 $t$ 可以替换 $\mathscr{A}$ 中变元 $x_i$ 的{\color{purple} 所有自由出现}，且不会使得 $t$ 中任何变元与 $\mathscr{A}$ 的其他部分相互作用，我们就称 { \color{red} $t$ 对 $\mathscr{A}$ 中 $x_i$ 是自由的}。
+\end{mybox2}
+
+
+(\textit{注意此题有两问: 你需要 $1)$ 写出$\mathscr{A}(t)$，且 $2)$ 回答$t$在$\mathscr{A}(x_1)$中是否对$x_1$自由})
+
+\noindent\textbf{Answer}:  
+
+Note that in
+\[
+(d) \qquad (\forall x_2) A^3_1 ({\color{purple} x_1}, f^1_1({\color{purple} x_1}),x_2)  \to (\forall x_3)A^1_1(f^2_1({\color{purple} x_1},x_3)).
+\]
+$x_1$ has \textit{three} occurrences are free,
+hence 
+\[
+\mathscr{A}(t) = (\forall x_2) A^3_1 ({\color{purple} f^2_1(x_1,x_3)}, f^1_1({\color{purple} f^2_1(x_1,x_3)}),x_2)  \to (\forall x_3)A^1_1(f^2_1({\color{purple} f^2_1(x_1,x_3)},x_3))  
+\]
+And $t$ is \textit{not} free for $x_1$ in $(d)$ of course. 
+\hfill $\Box$
+
+
+
+
+
+\vspace{4em}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%=================== hw-9
+\noindent\texttt{hw-9 (2023/11/21)}
+
+\emph{p.59}: 11 \quad
+Let $\mathscr{L}$ be the first order language which includes (besides variables, punctuation, 
+connectives and quantifier) the individual constant $a_1$, the function letter $f^2_1$ and the predicate letter $A^2_2$. 
+Let $\mathscr{A}$ denote the \textit{wf}.
+\[
+(\forall x_1)(\forall x_2)( A^2_2 ( f^2_1(x_1,x_2), a_1)  \to A^2_2 (x_1,x_2) ).
+\]
+Define an interpretation $I$ of $\mathscr{A}$ as follows. 
+$D_I$ is $\mathbb{Z}$, $\bar{a}_1$ is $0$, $\bar{f^2_1} (x, y)$ is $x-y$, 
+$\bar{A^2_2}(x,y)$ is $x < y$. 
+Write down the interpretation of $\mathscr{A}$ in \textit{I}. 
+Is this a true statement or a false one? 
+Find another interpretation in which $\mathscr{A}$ is interpreted by a statement with the opposite truth value. \\
+(\textit{注意此题有三问: $1)$ 用自然语言（中文/英语）写出 $\mathscr{A}$ 在 $I$下的直观含义；$2)$ 回答在\textit{I}下 $\mathscr{A}$是为\textbf{{\color{purple} 真}}还是为\textbf{{\color{purple} 假}}；$3)$ 基于你对第二问的回答，为公式 $\mathscr{A}$ 找一个新的解释，且在这个{\color{purple} 新}解释中，$\mathscr{A}$的真值与你第二问的答案恰好相反})[所以你对第二问的回答很重要]
+
+\noindent\textbf{Answer}:   
+
+(1) The formula $\mathscr{A}$ in $I$ intuitively means that, 
+
+\hspace{6em} \textit{for any integer $x_1, x_2$: if  $(x_1 - x_2) < 0$ then $x_1 < x_2$.}
+
+
+(2) This interpretation of $\mathscr{A}$ in $I$ is {\color{purple} \textit{true}}. 
+
+
+(3) Let $D_I$ to be $\mathbb{N}$, $\bar{a}_1$ to be $0$, $\bar{f^2_1} (x, y)$ is $x \times y$, and $\bar{A^2_2}(x,y)$ is $x > y$. 
+Clearly, $\mathscr{A}$ is {\color{purple} false} in this new interpretation. 
+(other reasonable interpretations are acceptable, of course)
+\hfill $\Box$
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{4em}
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+%=================== hw-10
+\noindent\texttt{hw-10 (2023/12/13)}
+
+\emph{p.70}: 22-(a) \quad
+Show that none of the following \textit{wfs.} is logically valid.
+\[
+(a) \qquad 
+(\forall x_1) (\exists x_2) A^2_1(x_1,x_2) \to (\exists x_2) (\forall x_1) A^2_1 (x_1,x_2).
+\]
+\textbf{Proof}:   
+
+
+It suffices to find an interpretation $I$ such that $I \not \models (\forall x_1) (\exists x_2) A^2_1(x_1,x_2) \to (\exists x_2) (\forall x_1) A^2_1 (x_1,x_2)$.
+
+Let $D_I=\mathbb{N}$ and $\bar{A}^2_1(x,y)$ be `$x < y$'. 
+
+
+It is clear that the close \textit{wf.} $(\forall x_1) (\exists x_2) A^2_1(x_1,x_2)$ is \textit{true} in this interpretation, 
+and the close \textit{wf.} 
+$(\exists x_2) (\forall x_1) A^2_1 (x_1,x_2)$ is \textit{false}. 
+That is, every valuation satisfies the former and does not satisfy the latter. 
+Hence no valuation satisfies the given \textit{wf.} in clause $(a)$. 
+It is thus not true in this interpretation and it cannot be logically valid.
+\hfill $\Box$
+
+
+
+
+
+
+
+%\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\end{document}
