@@ -13,3 +13,5 @@ https://nixnehc.github.io/math-logic2023/
 - `images/..` 存放图片
 - `misc/..` 杂项
 - `hw-tex/..` 存放每次作业的 tex, pdf 文件与解答
+
+[课程结束，已删除所有作业及参考答案]
